@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>lidar_intensity_map_generation</name>
+    <version>0.0.0</version>
+    <description>A lib package to generate intensity map as image from lidar point cloud.</description>
+
+    <license>MRT</license>
+    <maintainer email="haohao.hu@kit.edu">haohaohu</maintainer>
+    <author email="haohao.hu@kit.edu">haohaohu</author>
+    <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/MRT/private/haohaohu/lidar_intensity_map_generation</url>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>mrt_cmake_modules</build_depend>
+    <test_depend>gtest</test_depend>
+    <!--
+      Documentation for dependencies:
+      <build_depend>            Build-time dependency required to build
+                                this package, e.g. boost, opencv.
+      <build_export_depend>     Exported build-time dependency required to
+                                build packages that depend on this package,
+                                e.g. boost, opencv.
+      <exec_depend>             Execution dependency required to run this
+                                package, e.g. boost, opencv.
+      <depend>                  Build-time, exported build-time and execution
+                                dependency. This is a bundled synonym for
+                                <build_depend>, <build_export_depend> and
+                                <exec_depend>.
+    -->
+    <!--
+      Example:
+      <depend>mrt_opencv</depend>
+    -->
+
+    <depend>tbb</depend>
+
+    <depend>libopencv-dev</depend>
+    <depend>libpcl-all-dev</depend>
+
+    <depend>param_config</depend>
+    <depend>extracted_msgs_file_io</depend>
+    <depend>generic_logger</depend>
+    <depend>trajectory</depend>
+
+    <export>
+        <!-- Other tools can request additional information be placed here -->
+    </export>
+</package>

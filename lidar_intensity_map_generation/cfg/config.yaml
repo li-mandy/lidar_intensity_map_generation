@@ -1,0 +1,21 @@
+#############################################
+### Intensity Image Generation Parameters ###
+#############################################
+
+## Generic logger level ##
+loggingLevel: info # debug, warn, error
+
+## Work directory ##
+workDir: /home/mili
+
+## Point cloud filtering ##
+filteringPreSegZMin: -0.2
+filteringPreSegZMax: 0.2
+filteringSegMaxDistance: 0.2
+filteringSegInlierWarningPerc: 0.6
+
+## Image generation ##
+generationROIWidth: 10.0
+generationROILength: 20.0
+generationImgResolution: 0.05
+generationIntensityMin: 0.0

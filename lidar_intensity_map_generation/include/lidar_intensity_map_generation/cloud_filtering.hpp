@@ -72,6 +72,7 @@ public:
      * @return filterCfg: the cloud filter configs.
      */
     FilterCfg getConfigs() const {
+
         return cfg_;
     }
 
@@ -80,6 +81,7 @@ public:
      * @return Cloud::Ptr: the source point cloud ptr.
      */
     typename Cloud::Ptr getSrcCloud() const {
+        checkStatus();
         return cloud_;
     }
 
@@ -88,6 +90,7 @@ public:
      * @return Cloud::Ptr: the filtered point cloud ptr.
      */
     typename Cloud::Ptr getFilteredCloud() const {
+
         checkStatus();
         return cloudFiltered_;
     }
@@ -116,19 +119,19 @@ public:
             ERROR_STREAM("The point cloud filter step is not successful.");
         }
 
-        // Plane fitting.
-        if (planeFit()) {
-            INFO_STREAM("The plane fit step is successful.");
-        } else {
-            ERROR_STREAM("The plane fit step is not successful.");
-        }
-
-        // Point cloud segmentation.
-        if (segment()) {
-            INFO_STREAM("The segment step is successful.");
-        } else {
-            ERROR_STREAM("The segment step is not successful.");
-        }
+//        // Plane fitting.
+//        if (planeFit()) {
+//            INFO_STREAM("The plane fit step is successful.");
+//        } else {
+//            ERROR_STREAM("The plane fit step is not successful.");
+//        }
+//
+//        // Point cloud segmentation.
+//        if (segment()) {
+//            INFO_STREAM("The segment step is successful.");
+//        } else {
+//            ERROR_STREAM("The segment step is not successful.");
+//        }
 
         // Set flag as true.
         isFiltered_ = true;
@@ -207,11 +210,11 @@ private:
 
     FilterCfg cfg_;
     bool isFiltered_{false};
-    typename Cloud::Ptr cloud_;
-    typename Cloud::Ptr cloudFiltered_;
-    typename Cloud::Ptr cloudSegmented_;
-    pcl::ModelCoefficients::Ptr planeCoeffs_;
-    pcl::PointIndices::Ptr planeInliers_;
+    typename Cloud::Ptr cloud_{new Cloud};
+    typename Cloud::Ptr cloudFiltered_{new Cloud};
+    typename Cloud::Ptr cloudSegmented_{new Cloud};
+    pcl::ModelCoefficients::Ptr planeCoeffs_{new pcl::ModelCoefficients};
+    pcl::PointIndices::Ptr planeInliers_{new pcl::PointIndices};
 };
 } // namespace intensity_map_data
 } // namespace intensity_map
